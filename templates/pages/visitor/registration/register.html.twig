@@ -1,0 +1,103 @@
+{% extends "themes/base_visitor.html.twig" %}
+
+{% block title %} - Inscription{% endblock %}
+
+{% block main %}
+
+    <h1 class="text-center my-3 display">Inscription</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-lg-7 mx-auto p-4 bg-white shadow">
+                {{ form_start(registrationForm) }}
+                
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="registration_form_firstName">Prénom</label>
+                                <div class="text-danger">{{ form_errors(registrationForm.firstName) }}</div>
+                                {{ form_widget(registrationForm.firstName, {'attr' : {'class' : 'form-control'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="registration_form_lastName">Nom</label>
+                                <div class="text-danger">{{ form_errors(registrationForm.lastName) }}</div>
+                                {{ form_widget(registrationForm.lastName, {'attr' : {'class' : 'form-control'}}) }}
+                            </div>
+                        </div>
+                        </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                             <div class="mb-3">
+                                    <label for="registration_form_email">Email</label>
+                                    <div class="text-danger">{{ form_errors(registrationForm.email) }}</div>
+                                    {{ form_widget(registrationForm.email, {'attr' : {'class' : 'form-control'}}) }}
+                                </div>
+                        </div>
+                    </div>
+
+                     <div class="row">
+                        <div class="col-12">
+                        <div class="mb-3">
+                                <label for="registration_form_password_first">Mot de passe</label>
+                                 <div class="text-danger">{{ form_errors(registrationForm.password.first) }}</div>
+                                {{ form_widget(registrationForm.password.first, {'attr' : {'class' : 'form-control'}}) }}
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                        <div class="mb-3">
+                                <label for="registration_form_password_second">Confirmation du mot de passe</label>
+                                {{ form_widget(registrationForm.password.second, {'attr' : {'class' : 'form-control'}}) }}
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                    {{ form_widget(registrationForm.agreeTerms) }}
+                                    <label for="registration_form_password_agreeTerms">Lire et accepter <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">les conditions générales d'utilisation</a></label>
+                            </div>
+
+                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Les conditions générales d'utilisation</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptas. Rappelez-vous, une fois que l’utilisateur a accepté vos CGU, il est lié à vous par contrat. Il indique avoir lu et accepté les modalités de navigation sur votre site, et savoir ce qu’il peut ou ne peut pas faire. De votre côté, vous pouvez fixer dans les CGU les limites de votre responsabilité. 
+                                            C’est d’ailleurs là toute leur utilité ! En effet, grâce aux CGU, vous pouvez prévoir :
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">J'ai lu</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <button formnovalidate type="submit" class="btn btn-primary">Je m'inscris</button>
+                            </div>
+                        </div>
+                    </div>    
+
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
